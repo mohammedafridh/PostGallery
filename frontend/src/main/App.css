@@ -1,0 +1,634 @@
+body{
+  margin: 0rem auto;
+  padding: 0;
+  box-sizing: border-box;
+  color: black;
+}
+
+.pages{
+  margin: 0rem auto;
+  padding: 0;
+  min-height: 100vh;
+  /* background-color: #e9e9e9; */
+  /* height: 92.2vh; */
+  /* max-width: 1400px; */
+}
+
+.button{
+  padding: 10px 30px;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  background: #9b9896;
+  color: rgb(41, 40, 40);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.button:hover{
+  transform: scale(1.1);
+  transition: 0.4s;
+}
+
+/* mantime theme css */
+
+.mantine-1fholi4 {
+  background: red!important;
+  color: white!important;
+}
+
+/* Base Layout css */
+
+.baseLayout{
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  /* gap: 1rem; */
+}
+
+.content{
+  background-color: #e7e7e7;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Side Bar Css */
+
+.sidebarContainer{
+  background-image: linear-gradient( 134.6deg,  rgba(201,37,107,1) 15.4%, rgba(116,16,124,1) 74.7% );
+  min-height: 100vh;
+  position: sticky;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sideBarWrapper{
+  padding: 25px;
+  justify-content: space-between;
+}
+
+.logoContainer{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 1rem;
+  display: flex;
+  /* flex-direction: column; */
+  gap: 0.5rem;
+}
+
+.logoContainer>img{
+  width: 30%;
+  height: 30%;
+}
+
+.logoContainer>span{
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-shadow: -2.5px -2.5px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+}
+
+.sidebarImgContainer{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-bottom: 2px solid #8f8d8d;
+  padding-bottom: 1rem;
+}
+
+.sidebarImgContainer>img{
+  border-radius: 50%;
+  width: 70%;
+  height: 70%;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  border: 5px solid #76FF03;
+}
+
+.sidebarImgContainer>button:nth-of-type(1){
+  padding: 10px 30px;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  background: #F1C40F;
+  color: rgb(41, 40, 40);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.sidebarImgContainer>button:nth-of-type(1):hover{
+  transform: scale(1.1);
+  transition: 0.4s;
+}
+
+.sidebarImgContainer>button:nth-of-type(2){
+  padding: 10px 30px;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  background: #2ECC71;
+  color: rgb(41, 40, 40);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.sidebarImgContainer>button:nth-of-type(2):hover{
+  transform: scale(1.1);
+  transition: 0.4s;
+}
+
+.menus{
+  list-style: none;
+  padding: 5px;
+  border-bottom: 2px solid #a5a2a2;
+  margin-bottom: 1rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+}
+
+.menus>ul{
+  list-style: none;
+  justify-content: center;
+  padding: 0;
+}
+
+.menuItem{
+  display: flex;
+  gap: 5px;
+  padding: 5px 10px;
+  margin-bottom: 0.7rem;
+  cursor: pointer;
+  align-items: center;
+  border-radius: 10px;
+  color: white;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.menuItemActive{
+  color: #FDD835;
+  font-weight: 900;
+}
+
+.menuItem:hover{
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.logout{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.logout>button{
+  padding: 10px 30px;
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  background: #E67E22;
+  color: rgb(41, 40, 40);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.logout>button:hover{
+  transform: scale(1.1);
+  transition: 0.4s;
+}
+
+.footer{
+  background: black;
+  color: white;
+  padding: 13px;
+  font-size: 16px;
+  text-align: center;
+  align-items: center;
+}
+
+.footer>p{
+  padding: 0;
+  margin: 0;
+}
+
+/* AddPostModal css */
+
+.addPostForm{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.addPostForm>h1{
+  margin: 0;
+  color: #8E24AA;
+}
+
+.addPostForm>textarea{
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  min-height: 8rem;
+  outline: none;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+
+.postImage{
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.postImage>input{
+  border: 1px solid #ccc;
+  width: 100%;
+  padding: 10px;
+  border-radius: 7px;
+  /* box-sizing: border-box; */
+}
+
+.imageDisplay{
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 10px;
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 7px;
+}
+
+.imageDisplay>img{
+  width: 45%;
+  height: 45%;
+}
+
+.imageDisplay>button{
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  background: red;
+  color: white;
+  font-weight: 400;
+  padding: 3px 5px;
+  outline: none;
+  border: none;
+  font-size: 15px;
+}
+
+.addPostForm>button{
+  background: linear-gradient( 134.6deg,  rgba(201,37,107,1) 15.4%, rgba(116,16,124,1) 74.7% );
+  color: white;
+  font-weight: 700;
+}
+
+/* Homepage Css */
+
+.homepageContainer>h1{
+  padding-left: 20px;
+  color:#8E24AA;
+  text-align: center;
+}
+
+.contentsWrapper{
+  padding: 0px 50px;
+}
+
+.homepageContents{
+  background-color: white;
+  margin: 2rem auto;
+  display: flex;
+  gap: 1rem;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.homepageContents>img{
+  width: 50%;
+  min-width: 139px;
+  border-radius: 8px;
+}
+
+.allDetails{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.detailsContainer>span:nth-of-type(1){
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.likesContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.likesContainer>span{
+  color: #2E7D32;
+}
+
+.likes{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.likes>span{
+  color: #546E7A;
+}
+
+.likedButton{
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background: #1976D2;
+  color: white;
+  cursor: pointer;
+}
+
+.likedButton:hover{
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.unlikedButton{
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  outline: none;
+  border: 3px solid #1976D2;
+  color: black;
+  cursor: pointer;
+}
+
+.unlikedButton:hover{
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+/* My Posts css */
+.myPostsContainer{
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.myPosts{
+  padding-top: 1.5rem;
+}
+
+.myPosts>h1{
+  padding: 0!important;
+  margin: 0!important;
+  text-align: center;
+  color: #8E24AA;
+}
+
+.posts{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  width: 40vh;
+}
+
+.posts>span{
+  min-height: 10vh;
+}
+
+.posts>img{
+  width: 40vh;
+  border-radius: 8px;
+}
+
+.posts>span{
+  color: #686868;
+  font-size: 15px;
+}
+
+.postActions{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.editBtn{
+  background: #03A9F4;
+  color: white;
+}
+
+/* Profile css */
+.profile{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+
+.profileForm{
+  padding: 30px 15px;
+  background-color: white;
+  box-shadow: 3px 3px 5px 6px #ccc;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 50vh;
+  font-size: 17px;
+}
+
+.profileForm>h1{
+  padding: 0;
+  margin: 0;
+  color: #8E24AA;
+}
+
+.profileForm>img{
+  width: 20vh;
+  height: 20vh;
+  border-radius: 50%;
+  border: 5px solid #76FF03;
+}
+
+.details{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.details>span:nth-of-type(1){
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.profileUpdateBtn{
+  background: linear-gradient( 134.6deg,  rgba(201,37,107,1) 15.4%, rgba(116,16,124,1) 74.7% );
+  color: white;
+}
+
+/* UpdateProfileModel css */
+
+.addPostForm>input{
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+}
+
+/* Login css */
+.loginContainer{
+  background-image: linear-gradient( 134.6deg,  rgba(201,37,107,1) 15.4%, rgba(116,16,124,1) 74.7% );
+  height: 100vh;
+  width: 100%;
+}
+
+.loginWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.loginForm{
+  background-color: rgba(155, 155, 155, 0.15);
+  border-radius: 8px;
+  border: 2px solid #8E24AA;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 6px 6px 5px 6px rgba(37, 37, 37, 0.295);
+  width: max-content;
+  color: white;
+}
+
+.loginForm>button{
+  margin: 1rem 0rem;
+  background: black;
+  color: white;
+  width: 100%;
+}
+
+.loginImage{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.loginImage>img{
+  width: 10vh;
+  height: 10vh;
+  margin-bottom: 1rem;
+  margin: 0rem auto;
+}
+
+.loginImage{
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.loginDetails{
+  width: 100%;
+}
+
+.loginDetails>input{
+  background: transparent;
+  border: 3px solid white;
+  padding: 7px;
+  color: white;
+  outline: none;
+  border-radius: 7px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.loginDetails>input:hover{
+  transform: scale(1.03);
+  transition: 0.3s;
+}
+
+.loginDetails>input::placeholder {
+  color: rgba(218, 218, 218, 0.781); /* Replace with your desired color value */
+}
+
+.signUpLink{
+  /* text-decoration: underline; */
+  color: black;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+/* Signup css */
+
+.propicContainer{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.propicContainer>img{
+  width: 10vh;
+  height: 10vh;
+  border-radius: 50%;
+}
+
+.propicContainer>button{
+  border-radius: 50%;
+  padding: 2px;
+  font-size: 20px;
+  width: 5vh;
+  height: 5vh;
+  font-weight: bold;
+  background: transparent;
+  border: 3px solid #ccc;
+  cursor: pointer;
+}
+
+
+
+
+
