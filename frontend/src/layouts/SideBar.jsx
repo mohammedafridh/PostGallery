@@ -6,18 +6,23 @@ import {
 } from "@mui/icons-material";
 import AddPostModal from '../modals/AddPostModal';
 import Logo from '../images/logo2.png'
+import {toast} from 'react-hot-toast'
+import useLogout from '../hooks/useLogout';
 
 const SideBar = () => {
 
     const [modalOpened, setModalOpened] = useState(false)
     const navigate = useNavigate()
+    const{logout} = useLogout()
 
     const profileHandler = ()=>{
         navigate('/profile')
     }
 
-    const logoutHandler = ()=>{
+    const logoutHandler = async()=>{
+        await logout()
         navigate('/')
+        toast.success('Logged Out Successfully!')
     }
 
     return (
