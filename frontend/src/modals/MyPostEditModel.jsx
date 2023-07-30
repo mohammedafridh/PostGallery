@@ -1,17 +1,22 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Modal, useMantineTheme } from '@mantine/core';
 import FileBase from 'react-file-base64'
 
-const MyPostEditModel = ({ modalOpened, setModalOpened }) => {
+const MyPostEditModel = ({ modalOpened, setModalOpened,post }) => {
 
     const theme = useMantineTheme();
-    const [postImage, setPostImage] = useState(null)
+    const [postImage, setPostImage] = useState(post.image)
+    const [description,setDescription] = useState(post.description)
     const [profileKey,setProfileKey] = useState(Date.now())
 
     const postImageHandler = ()=>{
         setPostImage(null)
         setProfileKey(Date.now())
     }
+
+    useEffect(()=>{
+        setDescription(post.description)
+    },[post])
 
     return (
         <Modal
@@ -26,7 +31,7 @@ const MyPostEditModel = ({ modalOpened, setModalOpened }) => {
             <form action="" className="addPostForm">
 
                 <h1>Edit Post</h1>
-                <textarea placeholder='Description'></textarea>
+                <textarea placeholder='Description' value = {description}></textarea>
 
                 <div className="postImage">
                     <label>Image</label>

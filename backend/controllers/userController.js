@@ -70,6 +70,16 @@ export const viewUser = async(req,res)=>{
     }
 }
 
+//viewAllUsers
+export const viewAllUsers = async(req,res)=>{
+    try{
+        const users = await UserModel.find()
+        res.status(200).json(users)
+    }catch(error){
+        res.status(500).json({error:error.message})
+    }
+}
+
 // Update User
 export const updateUser = async(req,res)=>{
     const {username,password,name,image} = req.body

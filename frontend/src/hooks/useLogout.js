@@ -1,14 +1,17 @@
-import { useAuthContext } from "../contexts/UserAuthContext"
+import { useDispatch, useSelector } from "react-redux"
+import {logout} from '../slices/UserSlice'
+import { selectPost, viewAllPosts } from "../slices/PostSlice"
 
 const useLogout = ()=>{
 
-    const {dispatch} = useAuthContext()
+    const dispatch = useDispatch()
 
-    const logout = ()=>{
+    const logoutUser = ()=>{
         localStorage.removeItem('user')
-        dispatch({type:'Logout'})
+        dispatch(logout())
+        dispatch(viewAllPosts(null))
     }
-    return {logout}
+    return {logoutUser}
 }
 
 export default useLogout

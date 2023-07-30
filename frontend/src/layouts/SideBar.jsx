@@ -8,20 +8,23 @@ import AddPostModal from '../modals/AddPostModal';
 import Logo from '../images/logo2.png'
 import {toast} from 'react-hot-toast'
 import useLogout from '../hooks/useLogout';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../slices/UserSlice';
 
 const SideBar = () => {
 
     const [modalOpened, setModalOpened] = useState(false)
     const navigate = useNavigate()
-    const{logout} = useLogout()
+    const{logoutUser} =useLogout()
+    const user = useSelector(selectUser)
+    // console.log(user.payload.user.name)
 
     const profileHandler = ()=>{
         navigate('/profile')
     }
 
     const logoutHandler = async()=>{
-        await logout()
-        navigate('/')
+        await logoutUser()
         toast.success('Logged Out Successfully!')
     }
 

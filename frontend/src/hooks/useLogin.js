@@ -1,13 +1,16 @@
 import { useState } from "react"
-import { useAuthContext } from "../contexts/UserAuthContext"
+// import { useAuthContext } from "../contexts/UserAuthContext"
+import { useDispatch } from 'react-redux'
+import { login, selectUser } from "../slices/UserSlice"
 
 const useLogin = ()=>{
 
-    const{dispatch} =useAuthContext()
+    // const{dispatch} =useAuthContext()
     const[error,setError] = useState(null)
     const[loading,setLoading] = useState(null)
+    const dispatch = useDispatch()
 
-    const login = async(username,password)=>{
+    const loginUser = async(username,password)=>{
         setError(null)
         setLoading(true)
         const response = await fetch('/users/',{
@@ -25,12 +28,12 @@ const useLogin = ()=>{
 
         if(response.ok){
             localStorage.setItem('user', JSON.stringify(json))
-            dispatch({type:'Login', payload:json})
+            dispatch(login(json),{loggedIn:true})
             setLoading(false)
         }
     }
 
-    return{login,error,loading}
+    return{loginUser,error,loading}
 
 }
 

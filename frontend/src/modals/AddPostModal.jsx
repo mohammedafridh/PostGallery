@@ -1,16 +1,56 @@
 import React, { useState } from 'react'
 import { Modal, useMantineTheme } from '@mantine/core';
 import FileBase from 'react-file-base64'
+import { createPost } from '../slices/PostSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUser } from '../slices/UserSlice';
 
 const AddPostModal = ({ modalOpened, setModalOpened }) => {
 
     const theme = useMantineTheme();
-    const [postImage, setPostImage] = useState(null)
-    const [profileKey,setProfileKey] = useState(Date.now())
+    const [image, setImage] = useState(null)
+    const [description, setDescription] = useState('')
+    const [profileKey, setProfileKey] = useState(Date.now())
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
+    const user = useSelector(selectUser)
+    const dispatch = useDispatch()
 
-    const postImageHandler = ()=>{
-        setPostImage(null)
+    const postImageHandler = () => {
+        setImage(null)
         setProfileKey(Date.now())
+    }
+
+    const createPostHandler = async (e) => {
+        e.preventDefault()
+        setLoading(true)
+        // console.log('token is', user.token)
+        const post = { image, description }
+        console.log(post)
+
+        const response = await fetch('/posts/createPost', {
+            method: 'POST',
+            body: JSON.stringify(post),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
+            }
+        })
+        const json = await response.json()
+        console.log(json)
+
+        if (!response.ok) {
+            setError(json.error)
+            setLoading(false)
+        } if (response.ok) {
+            console.log(json.image)
+            dispatch(createPost(json))
+            setLoading(false)
+            setModalOpened(false)
+            setImage(null)
+            setProfileKey(Date.now())
+        }
+
     }
 
     return (
@@ -23,31 +63,30 @@ const AddPostModal = ({ modalOpened, setModalOpened }) => {
             onClose={() => { setModalOpened(false) }}
         >
 
-            <form action="" className="addPostForm">
+            <form onSubmit={createPostHandler} className="addPostForm">
 
                 <h1>Create Post</h1>
-                <textarea placeholder='Description'></textarea>
+                <textarea placeholder='Description' onChange={(e) => setDescription(e.target.value)}></textarea>
 
                 <div className="postImage">
                     <label>Image</label>
                     <FileBase
                         type="file"
                         multiple={false}
-                        className="postImg"
                         onDone={({ base64 }) =>
-                            setPostImage(base64)
+                        setImage(base64)
                         }
                         key={profileKey}
                     />
                 </div>
-                {postImage &&
+                {image &&
                     <div className="imageDisplay">
-                        <img src={postImage} alt='' />
-                        <button onClick = {postImageHandler} className='closeBtn'>x</button>
+                        <img src={image} alt='' />
+                        <button onClick={postImageHandler} className='closeBtn'>x</button>
                     </div>
                 }
 
-                <button className='button'>Create Post</button>
+                <button type='submit' className='button'>Create Post</button>
             </form>
         </Modal>
     )

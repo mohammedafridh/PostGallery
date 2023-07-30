@@ -17,6 +17,7 @@ export const createPost = async(req,res)=>{
     }
 }
 
+
 export const viewSinglePost = async(req,res)=>{
     const id = req.params.id
 
