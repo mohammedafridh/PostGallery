@@ -1,27 +1,32 @@
 import React,{useState} from 'react'
 import BaseLayout from '../layouts/BaseLayout'
 import UpdateProfileModel from '../modals/UpdateProfileModel'
+import { useSelector } from 'react-redux'
+import { selectUser } from '../slices/UserSlice'
 
 const Profile = () => {
 
     const[modalOpened,setModalOpened] = useState(false)
+    const users = useSelector(selectUser)
+    console.log(users)
 
   return (
     <BaseLayout>
         <div className="profile">
             <div className="profileForm">
-                <h1>Hi Afridh!</h1>
+                <h1>Welcome!</h1>
 
-                <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7CvILgxYosg0DRIDIkbtx-2zRHF-l1TdB7M33__DJ94s71KZ4p9qXc9zuq8nyrk9Sf2c&usqp=CAU" alt = '' />
+            {users.user.image?
+                <img src = {users.user.image} alt = '' /> : <img src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0Xdf9OyXn9BpWL30gb6cpyLnkiCCbSaH8wVB1007o9WpYBDgb6J1_afDQTdJuqwgE3xM&usqp=CAU' alt = '' /> }
 
                 <div className="details">
                     <span>Name</span>
-                    <span>Afridh</span>
+                    <span>{users.user.name}</span>
                 </div>
 
                 <div className="details">
                     <span>Username</span>
-                    <span>Afridh123</span>
+                    <span>{users.user.username}</span>
                 </div>
 
                 <div className="details">
